@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState, useEffect } from "react";
 
 function App() {
+  const [width, setWidth] = useState(window.screen.width);
+  const [height, setHeight] = useState(window.screen.height);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    function handleResize() {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+    }
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="text">
+        <h1 id="heading">Your Screen Size is</h1>
+        <i id="size">{width} X {height}</i>
+      </div>
     </div>
   );
 }
