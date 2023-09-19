@@ -16,7 +16,6 @@ function App() {
   return (
     <div className="App">
       <div className="text">
-        <h1 id="heading">Your Screen Size is</h1>
         <i id="size">{width} X {height}</i>
       </div>
     </div>
